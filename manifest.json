@@ -1,0 +1,25 @@
+{
+  "manifest_version": 3,
+  "name": "Wubby Pleb Titles",
+  "version": "1.0.0",
+  "description": "Replace video titles with community pleb titles on parasoci.al and archive.wubby.tv",
+  "permissions": ["storage"],
+  "host_permissions": [
+    "*://parasoci.al/*",
+    "*://archive.wubby.tv/*",
+    "*://sbvaclmypokafpxebusn.supabase.co/*"
+  ],
+  "background": {
+    "service_worker": "src/background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://parasoci.al/*", "*://archive.wubby.tv/*"],
+      "js": ["src/content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": {
+    "default_popup": "src/popup/popup.html"
+  }
+}
